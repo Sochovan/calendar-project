@@ -1,7 +1,7 @@
 {
   "name": "solution",
   "version": "1.0.0",
-  "main": "index.js",
+  "master": "index.js",
   "scripts": {
     "start": "webpack-dev-server -d --devtool eval-source-maps --open",
     "build": "webpack -p"
