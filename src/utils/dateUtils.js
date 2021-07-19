@@ -45,5 +45,3 @@ export const months = [
   "November",
   "December",
 ];
-
-let arr = [];
