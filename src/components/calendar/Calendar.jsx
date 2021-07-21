@@ -4,6 +4,7 @@ import Navigation from "./../navigation/Navigation.jsx";
 import Week from "../week/Week.jsx";
 import Sidebar from "../sidebar/Sidebar.jsx";
 import events from "../../gateway/events";
+import Modal from "../modal/Modal.jsx";
 
 import "./calendar.scss";
 

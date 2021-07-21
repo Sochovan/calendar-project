@@ -2,41 +2,32 @@ import React from "react";
 import moment from "moment";
 import { months } from "../../utils/dateUtils.js";
 import "./header.scss";
+import Modal from "../modal/Modal.jsx";
 
 const Header = ({
   goPrevWeek,
   goNextWeek,
   goToday,
-  weekStartDate,
   weekDates,
+  onChangeVisibleModal,
 }) => {
-  const isNextMonth = false;
-  console.log(weekDates); //26.07-01.08
-  for (let i = 0; i < weekDates.length; i++) {
-    console.log(new Date(weekDates[1]).getMonth()); //6
-    console.log(new Date(weekDates[6]).getMonth()); //7
-    if (
-      new Date(weekDates[1]).getMonth() !== new Date(weekDates[6]).getMonth()
-    ) {
-      return isNextMonth;
-    }
-    console.log(isNextMonth);
-  }
+  const firstDayOfWeek = moment(weekDates[0]).format("MMM");
+  const lastDayOfWeek = moment(weekDates[6]).format("MMM");
 
-  const currentMonth = moment(new Date(weekStartDate)).format("MMM");
-  console.log(currentMonth);
-
-  const nextMonth = `${moment(new Date(weekStartDate)).format("MMM")}-${moment(
-    new Date(weekStartDate.setMonth(weekStartDate.getMonth() + 1)).format("MMM")
-  )}`;
-  console.log(nextMonth);
+  const month =
+    firstDayOfWeek === lastDayOfWeek
+      ? firstDayOfWeek
+      : `${firstDayOfWeek}-${lastDayOfWeek}`;
 
   return (
     <header className="header">
-      <button className="button create-event-btn">
-        <i className="fas fa-plus create-event-btn__icon"></i>Create
+      <button
+        className="button create-event-btn"
+        onClick={onChangeVisibleModal}
+      >
+        <i className="fas fa-plus create-event-btn__icon"></i>
+        Create
       </button>
-
       <div className="navigation">
         <button className="navigation__today-btn button" onClick={goToday}>
           Today
@@ -56,9 +47,7 @@ const Header = ({
           <i className="fas fa-chevron-right"></i>
         </button>
 
-        <span className="navigation__displayed-month">
-          {isNextMonth ? "123" : "456"}
-        </span>
+        <span className="navigation__displayed-month">{month}</span>
       </div>
     </header>
   );
