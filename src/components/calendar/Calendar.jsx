@@ -19,6 +19,9 @@ class Calendar extends Component {
   fetchEvents = () => {
     fetchEventsList()
       .then((eventsList) =>
+        // this.setState({
+        //   events: eventsList.map((event) => console.log(event)),
+        // })
         this.setState({
           events: eventsList.map((event) => ({
             ...event,
@@ -40,15 +43,15 @@ class Calendar extends Component {
     onCreateEvent(eventData).then(() => this.fetchEvents());
   };
 
-  deleteEvent = (eventId) => {
+  deleteEvent = (id) => {
     // const updatedEvents = this.state.events.filter((event) => event.id !== id);
     // this.setState({ events: updatedEvents });
 
-    onDeleteEvent(eventId).then(() => this.fetchEvents());
+    onDeleteEvent(id).then(() => this.fetchEvents());
   };
 
   render() {
-    console.log(this.state.events);
+    console.log(this.state);
     const { weekDates } = this.props;
 
     return (
