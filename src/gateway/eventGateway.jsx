@@ -22,8 +22,8 @@ export const fetchEventsList = () => {
   });
 };
 
-export const onDeleteEvent = (eventId) => {
-  return fetch(`${baseUrl}/${eventId}`, {
+export const onDeleteEvent = (id) => {
+  return fetch(`${baseUrl}/${id}`, {
     method: "DELETE",
   }).then((response) => {
     if (!response.ok) {

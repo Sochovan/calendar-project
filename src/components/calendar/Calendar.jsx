@@ -20,7 +20,11 @@ class Calendar extends Component {
     fetchEventsList()
       .then((eventsList) =>
         this.setState({
-          events: eventsList,
+          events: eventsList.map((event) => ({
+            ...event,
+            dateFrom: new Date(event.dateFrom),
+            dateTo: new Date(event.dateTo),
+          })),
         })
       )
       .catch(() => alert("Internal Server Error. Can't display events"));
@@ -32,11 +36,7 @@ class Calendar extends Component {
 
   createEvent = (eventData) => {
     const { events } = this.state;
-    // console.log(eventData);
-    // const updatedEvents = events.concat(eventData);
-    // this.setState({
-    //   events: updatedEvents,
-    // });
+
     onCreateEvent(eventData).then(() => this.fetchEvents());
   };
 
