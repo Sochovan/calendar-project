@@ -8,7 +8,6 @@ const Hour = ({ dataHour, hourEvents, deleteEvent, isCurrentTimeSlot }) => {
   return (
     <div className="calendar__time-slot" data-time={dataHour + 1}>
       {isCurrentTimeSlot && <CurrentTime />}
-      {/* if no events in the current hour nothing will render here */}
       {hourEvents.map(({ id, dateFrom, dateTo, title }) => {
         const eventStart = `${dateFrom.getHours()}:${formatMins(
           dateFrom.getMinutes()
@@ -21,7 +20,7 @@ const Hour = ({ dataHour, hourEvents, deleteEvent, isCurrentTimeSlot }) => {
           <>
             <Event
               key={id}
-              //calculating event height = duration of event in minutes
+              id={id}
               height={(dateTo.getTime() - dateFrom.getTime()) / (1000 * 60)}
               marginTop={dateFrom.getMinutes()}
               time={`${eventStart} - ${eventEnd}`}

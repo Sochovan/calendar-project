@@ -19,9 +19,6 @@ class Calendar extends Component {
   fetchEvents = () => {
     fetchEventsList()
       .then((eventsList) =>
-        // this.setState({
-        //   events: eventsList.map((event) => console.log(event)),
-        // })
         this.setState({
           events: eventsList.map((event) => ({
             ...event,
@@ -44,9 +41,6 @@ class Calendar extends Component {
   };
 
   deleteEvent = (id) => {
-    // const updatedEvents = this.state.events.filter((event) => event.id !== id);
-    // this.setState({ events: updatedEvents });
-
     onDeleteEvent(id).then(() => this.fetchEvents());
   };
 

@@ -22,12 +22,6 @@ export const fetchEventsList = () => {
   });
 };
 
-// export const onDeleteEvent = (id) => {
-//   return fetch(`${baseUrl}/${id}`, {
-//     method: "DELETE",
-//   });
-// };
-
 export const onDeleteEvent = (id) => {
   return fetch(`${baseUrl}/${id}`, {
     method: "DELETE",
