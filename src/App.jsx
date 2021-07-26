@@ -36,6 +36,7 @@ class App extends Component {
   };
 
   onChangeVisibleModal = () => {
+    console.log(123);
     this.setState({
       isVisible: true,
     });
@@ -47,23 +48,12 @@ class App extends Component {
     });
   };
 
-  createEvent = (eventData) => {
-    console.dir(eventData);
-  };
-
   render() {
     const { weekStartDate } = this.state;
     const weekDates = generateWeekRange(getWeekStartDate(weekStartDate));
 
     return (
       <>
-        {!this.state.isVisible ? null : (
-          <Modal
-            onDeleteModal={this.onDeleteModal}
-            weekStartDate={this.state.weekStartDate}
-            onSubmit={this.createEvent}
-          />
-        )}
         <Header
           goPrevWeek={this.goPrevWeek}
           goNextWeek={this.goNextWeek}
@@ -73,7 +63,13 @@ class App extends Component {
           weekDates={weekDates}
           onChangeVisibleModal={this.onChangeVisibleModal}
         />
-        <Calendar weekDates={weekDates} />
+        <Calendar
+          weekDates={weekDates}
+          onDeleteModal={this.onDeleteModal}
+          weekStartDate={this.state.weekStartDate}
+          onChangeVisibleModal={this.onChangeVisibleModal}
+          isVisible={this.state.isVisible}
+        />
       </>
     );
   }

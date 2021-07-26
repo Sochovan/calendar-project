@@ -1,8 +1,7 @@
 import React from "react";
 import moment from "moment";
-import { months } from "../../utils/dateUtils.js";
 import "./header.scss";
-import Modal from "../modal/Modal.jsx";
+
 
 const Header = ({
   goPrevWeek,

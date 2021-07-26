@@ -1,28 +1,76 @@
 import React, { Component } from "react";
 
-import Navigation from "./../navigation/Navigation.jsx";
+import Navigation from "../navigation/Navigation.jsx";
 import Week from "../week/Week.jsx";
 import Sidebar from "../sidebar/Sidebar.jsx";
-import events from "../../gateway/events";
 import Modal from "../modal/Modal.jsx";
-
+import {
+  onCreateEvent,
+  fetchEventsList,
+  onDeleteEvent,
+} from "../../gateway/eventGateway.jsx";
 import "./calendar.scss";
 
 class Calendar extends Component {
   state = {
-    events,
+    events: [],
+  };
+
+  fetchEvents = () => {
+    fetchEventsList()
+      .then((eventsList) =>
+        this.setState({
+          events: eventsList,
+        })
+      )
+      .catch(() => alert("Internal Server Error. Can't display events"));
+  };
+
+  componentDidMount() {
+    this.fetchEvents();
+  }
+
+  createEvent = (eventData) => {
+    const { events } = this.state;
+    // console.log(eventData);
+    // const updatedEvents = events.concat(eventData);
+    // this.setState({
+    //   events: updatedEvents,
+    // });
+    onCreateEvent(eventData).then(() => this.fetchEvents());
+  };
+
+  deleteEvent = (eventId) => {
+    // const updatedEvents = this.state.events.filter((event) => event.id !== id);
+    // this.setState({ events: updatedEvents });
+
+    onDeleteEvent(eventId).then(() => this.fetchEvents());
   };
 
   render() {
+    console.log(this.state.events);
     const { weekDates } = this.props;
 
     return (
       <section className="calendar">
+        {!this.props.isVisible ? null : (
+          <Modal
+            onDeleteModal={this.props.onDeleteModal}
+            weekStartDate={this.state.weekStartDate}
+            onChangeVisibleModal={this.props.onChangeVisibleModal}
+            createEvent={this.createEvent}
+          />
+        )}
+
         <Navigation weekDates={weekDates} />
         <div className="calendar__body">
           <div className="calendar__week-container">
             <Sidebar />
-            <Week weekDates={weekDates} events={this.state.events} />
+            <Week
+              weekDates={weekDates}
+              events={this.state.events}
+              deleteEvent={this.deleteEvent}
+            />
           </div>
         </div>
       </section>

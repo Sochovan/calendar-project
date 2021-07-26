@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import moment from "moment";
 import "./modal.scss";
+import { getDateTime } from "../../utils/dateUtils";
 
 class Modal extends Component {
   state = {
@@ -21,11 +22,28 @@ class Modal extends Component {
 
   handleSubmitModal = (e) => {
     e.preventDefault();
-    console.log(this.state);
-    this.props.onSubmit(this.state);
+
+    const { title, date, startTime, endTime, description } = this.state;
+    const currentEvent = {
+      title,
+      description,
+      dateFrom: getDateTime(date, startTime),
+      dateTo: getDateTime(date, endTime),
+    };
+
+    this.props.createEvent(currentEvent);
+
+    this.setState({
+      title: "",
+      description: "",
+      date: "",
+      startTime: "",
+      endTime: "",
+    });
   };
 
   render() {
+    console.log(this.state);
     return (
       <div className="modal overlay">
         <div className="modal__content">
@@ -36,7 +54,7 @@ class Modal extends Component {
             >
               +
             </button>
-            <form className="event-form" onSubmit={this.props.onSubmit}>
+            <form className="event-form" onSubmit={this.handleSubmitModal}>
               <input
                 type="text"
                 name="title"
