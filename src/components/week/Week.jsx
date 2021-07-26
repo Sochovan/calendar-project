@@ -4,6 +4,8 @@ import Day from "../day/Day.jsx";
 import "./week.scss";
 
 const Week = ({ weekDates, events, deleteEvent }) => {
+  console.log(weekDates);
+  console.log(events);
   return (
     <div className="calendar__week">
       {weekDates.map((dayStart) => {
@@ -14,7 +16,7 @@ const Week = ({ weekDates, events, deleteEvent }) => {
           moment(dayStart).format("MMMM DD YYYY") ===
           moment(new Date()).format("MMMM DD YYYY");
         const dayEvents = events.filter(
-          (event) => event.dateFrom > dayStart && event.dateTo < dayEnd
+          (event) => event.dateFrom > dayStart && event.dateTo < dayEnd,
         );
 
         return (
