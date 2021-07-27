@@ -1,5 +1,5 @@
 import React, { Component, useEffect, useState } from "react";
-
+import PropTypes from "prop-types";
 import Navigation from "../navigation/Navigation.jsx";
 import Week from "../week/Week.jsx";
 import Sidebar from "../sidebar/Sidebar.jsx";
@@ -51,7 +51,6 @@ const Calendar = ({
       {!isVisibleModal ? null : (
         <Modal
           onDeleteModal={onDeleteModal}
-          // weekStartDate={weekStartDate}
           onChangeVisibleModal={onChangeVisibleModal}
           createEvent={createEvent}
         />
@@ -72,6 +71,12 @@ const Calendar = ({
   );
 };
 
+Calendar.propTypes = {
+  onDeleteModal:PropTypes.func.isRequired,
+  onChangeVisibleModal:PropTypes.func.isRequired,
+  weekDates: PropTypes.array.isRequired,
+  isVisibleModal: PropTypes.bool.isRequired,
+};
 export default Calendar;
 
 // class Calendar extends Component {

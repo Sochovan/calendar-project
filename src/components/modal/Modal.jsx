@@ -1,4 +1,5 @@
 import React, { Component, useState } from "react";
+import PropTypes from "prop-types";
 import moment from "moment";
 import "./modal.scss";
 import { getDateTime } from "../../utils/dateUtils";
@@ -97,6 +98,11 @@ const Modal = ({ onDeleteModal, createEvent }) => {
       </div>
     </div>
   );
+};
+
+Modal.propTypes = {
+  onDeleteModal: PropTypes.func.isRequired,
+  createEvent: PropTypes.func.isRequired,
 };
 
 export default Modal;

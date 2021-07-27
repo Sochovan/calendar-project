@@ -27,7 +27,6 @@ const App = () => {
   };
 
   const onChangeVisibleModal = () => {
-    console.log(123);
     setIsVisibleModal(true);
   };
 

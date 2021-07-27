@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 import "./header.scss";
-
+import PropTypes from "prop-types";
 
 const Header = ({
   goPrevWeek,
@@ -50,6 +50,14 @@ const Header = ({
       </div>
     </header>
   );
+};
+
+Header.PropTypes = {
+  goPrevWeek: PropTypes.func.isRequired,
+  goNextWeek: PropTypes.func.isRequired,
+  goToday: PropTypes.func.isRequired,
+  weekDates: PropTypes.array.isRequired,
+  onChangeVisibleModal: PropTypes.func.isRequired,
 };
 
 export default Header;
