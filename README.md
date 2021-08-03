@@ -9,7 +9,7 @@ A calendar that is designed to planning your time with the ability to add and de
 - [Flexbox](https://en.wikipedia.org/wiki/CSS_Flexible_Box_Layout)
 - [Sass (Scss)](https://sass-lang.com/)
 - [BEM methodology](https://en.bem.info/methodology/)
-- [React] (https://reactjs.org/)
+- [React](https://reactjs.org/)
 
 ### Author
 
