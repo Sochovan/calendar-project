@@ -2,8 +2,6 @@ A calendar that is designed to planning your time with the ability to add and de
 
 ### https://sochovan.github.io/calendar-project/
 
-Layout supports mobile (up-to-400) and desktop (up-to-1360) versions
-
 ### The tech stack is:
 
 - [HTML5](https://en.wikipedia.org/wiki/HTML5)
