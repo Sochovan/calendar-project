@@ -1,4 +1,4 @@
-# Layout Sample Project
+# Calendar-project
 
 A calendar that is designed to planning your time with the ability to add and delete tasks
 

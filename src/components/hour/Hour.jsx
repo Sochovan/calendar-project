@@ -16,17 +16,15 @@ const Hour = ({ dataHour, hourEvents, deleteEvent, isCurrentTimeSlot }) => (
       )}`;
 
       return (
-        <>
-          <Event
-            key={id}
-            id={id}
-            height={(dateTo.getTime() - dateFrom.getTime()) / (1000 * 60)}
-            marginTop={dateFrom.getMinutes()}
-            time={`${eventStart} - ${eventEnd}`}
-            title={title}
-            deleteEvent={deleteEvent}
-          />
-        </>
+        <Event
+          key={id}
+          id={id}
+          height={(dateTo.getTime() - dateFrom.getTime()) / (1000 * 60)}
+          marginTop={dateFrom.getMinutes()}
+          time={`${eventStart} - ${eventEnd}`}
+          title={title}
+          deleteEvent={deleteEvent}
+        />
       );
     })}
   </div>
