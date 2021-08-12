@@ -52,7 +52,7 @@ const Header = ({
   );
 };
 
-Header.PropTypes = {
+Header.propTypes = {
   goPrevWeek: PropTypes.func.isRequired,
   goNextWeek: PropTypes.func.isRequired,
   goToday: PropTypes.func.isRequired,

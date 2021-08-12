@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Hour from "../hour/Hour.jsx";
-import "./day.scss";
+
 
 const Day = ({ dataDay, dayEvents, deleteEvent, isCurrentTime }) => {
   const hours = Array(24)
