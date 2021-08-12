@@ -2,9 +2,9 @@
 
 A calendar that is designed to planning your time with the ability to add and delete tasks
 
-### https://romantic-swirles-792d0e.netlify.app/
+You can find the project by link:
 
-Layout supports mobile (up-to-400) and desktop (up-to-1360) versions
+### https://romantic-swirles-792d0e.netlify.app/
 
 ### The tech stack is:
 
@@ -13,7 +13,7 @@ Layout supports mobile (up-to-400) and desktop (up-to-1360) versions
 - [Flexbox](https://en.wikipedia.org/wiki/CSS_Flexible_Box_Layout)
 - [Sass (Scss)](https://sass-lang.com/)
 - [BEM methodology](https://en.bem.info/methodology/)
-- [React] (https://reactjs.org/)
+- [React](https://reactjs.org/)
 
 ### Author
 
