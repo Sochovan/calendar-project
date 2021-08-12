@@ -1,6 +1,6 @@
 A calendar that is designed to planning your time with the ability to add and delete tasks
 
-### https://sochovan.github.io/calendar-project/
+### https://romantic-swirles-792d0e.netlify.app/
 
 ### The tech stack is:
 
