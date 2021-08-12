@@ -6,6 +6,10 @@ You can find the project by link:
 
 ### https://romantic-swirles-792d0e.netlify.app/
 
+The Class component's solution here:
+
+### https://sochovan.github.io/calendar-project-on-class/
+
 ### The tech stack is:
 
 - [HTML5](https://en.wikipedia.org/wiki/HTML5)
